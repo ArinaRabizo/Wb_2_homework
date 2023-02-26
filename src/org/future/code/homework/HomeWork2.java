@@ -19,11 +19,13 @@ public class HomeWork2 {
         Pattern pat2 = Pattern.compile("[A-Z]");
         Pattern pat3 = Pattern.compile("\\d");
         Pattern pat4 = Pattern.compile("_+");
+        Pattern pat5 = Pattern.compile("[^а-яА-Я]");
         Matcher matcher = pat1.matcher(login);
         Matcher matcher2 = pat2.matcher(login);
         Matcher matcher3 = pat3.matcher(login);
         Matcher matcher4 = pat4.matcher(login);
-        if (!matcher.find()||!matcher2.find()||!matcher3.find()||login.length() > 20||!matcher4.find()) {
+        Matcher matcher5 = pat5.matcher(login);
+        if (!matcher.find()||!matcher2.find()||!matcher3.find()||login.length() > 20||!matcher4.find()||!matcher5.find()) {
             System.out.println("Invalid login! ");
             throw new LoginValidationException();
         }
